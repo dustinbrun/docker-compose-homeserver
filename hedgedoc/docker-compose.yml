@@ -1,0 +1,35 @@
+version: "3"
+services:
+  mariadb:
+    image: ghcr.io/linuxserver/mariadb:latest
+    container_name: hedgedoc_mariadb
+    restart: always
+    volumes:
+      - ./db_config:/config
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=hedgedoc
+      - MYSQL_USER=hedgedoc
+      - MYSQL_PASSWORD=123456
+      - PGID=0
+      - PUID=0
+      - TZ=Europe/Berlin
+  hedgedoc:
+    image: ghcr.io/linuxserver/hedgedoc:latest
+    container_name: hedgedoc
+    restart: always
+    depends_on:
+      - mariadb
+    volumes:
+      - ./config:/config
+    environment:
+      - DB_HOST=mariadb
+      - DB_USER=hedgedoc
+      - DB_PASS=123456
+      - DB_NAME=hedgedoc
+      - DB_PORT=3306
+      - PGID=0
+      - PUID=0
+      - TZ=Europe/Berlin
+    ports:
+      - "86:3000"

@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  element-web:
+   image: vectorim/element-web
+   restart: unless-stopped
+   volumes:
+     - ./element-web-config/config.json:/app/config.json
+   ports:
+     - "91:80"
+
+  synapse-admin:
+   image: awesometechnologies/synapse-admin
+   restart: unless-stopped
+   ports:
+     - "92:80"

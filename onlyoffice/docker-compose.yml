@@ -1,0 +1,10 @@
+version: '2'
+services:
+   docserver:
+     image: onlyoffice/documentserver
+     restart: always
+     ports:
+       - 81:80
+     environment:
+       - JWT_ENABLED=true
+       - JWT_SECRET=changeme

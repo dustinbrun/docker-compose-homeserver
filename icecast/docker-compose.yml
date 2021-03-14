@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+  icecast:
+   image: infiniteproject/icecast:latest
+   environment:
+     - ICECAST_HOSTNAME=My_Stream
+     - ICECAST_ADMIN_PASSWORD=changeme
+     - ICECAST_ADMIN_USERNAME=admin
+     - ICECAST_SOURCE_PASSWORD=changeme
+     - ICECAST_LOCATION=My_home
+     - ICECAST_MAX_CLIENTS=25
+     - ICECAST_MAX_SOURCES=5
+   restart: always
+#   volumes:
+#     - ./config:/etc/icecast2
+   ports:
+     - "85:8000"
