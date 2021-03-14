@@ -1,0 +1,27 @@
+version: "2.1"
+services:
+  piwigo:
+    image: linuxserver/piwigo
+    container_name: piwigo
+    environment:
+      #- PUID=0
+      #- PGID=0
+      - TZ=Europe/Berlin
+    volumes:
+      - ./config:/config
+      - ./fotos_cloud:/config/www/gallery/fotos_cloud
+    ports:
+      - 82:80
+    restart: unless-stopped
+
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: unless-stopped
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=changeme
+      - MYSQL_PASSWORD=changeme
+      - MYSQL_DATABASE=piwigo
+      - MYSQL_USER=piwigo

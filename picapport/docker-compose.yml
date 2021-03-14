@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  picapport:
+    image: whatever4711/picapport
+    restart: always
+    ports:
+      - 84:80    
+    environment:
+      - Xms=512m
+      - Xmx=1g
+      - PICAPPORT_LANG=de
+    volumes:
+      - ./config:/opt/picapport/.picapport
+      - ./photos:/srv/photos

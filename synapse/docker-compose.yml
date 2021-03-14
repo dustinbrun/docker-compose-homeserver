@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  synapse:
+   image: matrixdotorg/synapse:latest
+   environment:
+     - TZ=DE
+     - UID=0
+     - GID=0
+   restart: always
+   volumes:
+     - ./synapse-data:/data
+   ports:
+     - "8008:8008"
