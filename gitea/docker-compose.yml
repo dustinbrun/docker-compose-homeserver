@@ -14,7 +14,7 @@ services:
      - DB_HOST=db:3306
      - DB_NAME=gitea
      - DB_USER=gitea
-     - DB_PASSWD=123456
+     - DB_PASSWD=changeme
      - APP_NAME=My_Git_Server
      - DISABLE_SSH=true
      - DISABLE_REGISTRATION=true
@@ -36,9 +36,9 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=changeme
       - MYSQL_USER=gitea
-      - MYSQL_PASSWORD=123456
+      - MYSQL_PASSWORD=changeme
       - MYSQL_DATABASE=gitea
     networks:
       - gitea

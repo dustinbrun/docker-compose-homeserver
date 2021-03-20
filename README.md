@@ -40,6 +40,8 @@ docker-compose up -d
 | lychee | web photo gallery |
 | piwigo | web photo gallery <- Best one in my Opinion |
 | picapport | web photo gallery |
+| Grafana | Graphical Interface for databases |
+| Influxdb | time series database server |
 
 <br><br>
 # Sources

@@ -7,10 +7,10 @@ services:
     volumes:
       - ./db_config:/config
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=changeme
       - MYSQL_DATABASE=hedgedoc
       - MYSQL_USER=hedgedoc
-      - MYSQL_PASSWORD=123456
+      - MYSQL_PASSWORD=changeme
       - PGID=0
       - PUID=0
       - TZ=Europe/Berlin
@@ -25,7 +25,7 @@ services:
     environment:
       - DB_HOST=mariadb
       - DB_USER=hedgedoc
-      - DB_PASS=123456
+      - DB_PASS=changeme
       - DB_NAME=hedgedoc
       - DB_PORT=3306
       - PGID=0
