@@ -1,0 +1,22 @@
+# If after the Start of the Container the logs say:  "You may have issues with file permissions"
+# Change the wirte permissions for the ./grafana and ./grafana_ext folder using: "chown 472 ./grafana"
+# 		or see https://community.grafana.com/t/new-docker-install-with-persistent-storage-permission-problem/10896
+
+version: '2'
+services:
+  grafana:
+    image: grafana/grafana
+    restart: unless-stopped
+    ports:
+      - '96:3000'
+    volumes:
+      - ./grafana:/var/lib/grafana
+      #- ./grafana_etc:/etc/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=changeme
+    user: "root"
+
+
+
+

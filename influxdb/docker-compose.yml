@@ -1,0 +1,20 @@
+version: '2'
+services:
+  influxdb:
+    image: influxdb:latest
+    restart: unless-stopped
+    ports:
+      - '8086:8086'
+    volumes:
+      - ./influxdb:/var/lib/influxdb2
+      - ./config:/etc/influxdb2
+    environment:
+      - INFLUXDB_DB=DBNAME
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=changeme
+      - DOCKER_INFLUXDB_INIT_ORG=organisation_name
+      - DOCKER_INFLUXDB_INIT_BUCKET=bucket_name
+      - TZ:Europe/Berlin
+      #- DOCKER_INFLUXDB_INIT_MODE=upgrade  #See for details how to upgrade from 1.x to 2.x: https://docs.influxdata.com/influxdb/v2.0/upgrade/v1-to-v2/docker/ 
+
+
