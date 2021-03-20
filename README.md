@@ -14,6 +14,8 @@ These Containers are designed to work on a Debain based machine.
 For each application there is a seperate folder.
 You need to place these folders in your home-directory, for example into `/root`. The docker-compose files are designed in a way, that all configuration- and data-folders are stored in these application folders. If you want to backup your containers you simply backup these folders and you can restore them easily.
 
+Before you deploy a container, make sure to change the password variables in the `docker-compose.yml` file. Somtimes there are also other variables that you can adapt to your needs.
+
 To deploy a container, go into the application-folder and type: 
 ```
 docker-compose up -d
